@@ -8,9 +8,15 @@
     </div>
     {% if 'salary' in job %}
     <div>
-      <b>Salary:</b> {{ job['salary'] }}
+      <b>Salary:</b> {{ job['currency'] }}  {{ job['salary'] }}
     </div>
     {% endif %}
+    <div class="job-desc">
+      <b>Responsibilities:</b> {{ job['responsibilites']}}
+    </div>    
+    <div class="job-desc">
+      <b>Requirements:</b> {{ job['requirements']}}
+    </div>
   </div>
   <div class="col-md-3">
     <button type="button" class="btn btn-outline-primary">Apply</button>
