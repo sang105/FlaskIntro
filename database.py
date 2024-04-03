@@ -3,8 +3,9 @@ import os
 db_username = os.getenv("DATABASE_USERNAME")
 db_password = os.getenv("DATABASE_PASSWORD")
 db_server = os.getenv("DATABASE_SERVER")
+db_name = os.getenv("DATABASE_NAME")
 
-engine = create_engine(f"mysql+pymysql://{db_username}:{db_password}@{db_server}/joviancareers?charset=utf8mb4")
+engine = create_engine(f"mysql+pymysql://{db_username}:{db_password}@{db_server}/{db_name}?charset=utf8mb4")
 
 # with engine.connect() as conn:
 #         sql_query = 'SELECT * FROM jobs'
