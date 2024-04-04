@@ -15,7 +15,11 @@ engine = create_engine(f"mysql+pymysql://{db_username}:{db_password}@{db_server}
 #         for column in result_all:
 #             res = column._mapping
 #             d.append(dict(res))
-#         print(d)
+#     
+#     print(d)
+
+# with engine.connect() as conn:
+#     print(conn.execute(text("SELECT * FROM jobs WHERE id = 1")))
 
 
 
@@ -29,4 +33,20 @@ def load_jobs_from_db():
         for row in result_all:
             res = row._mapping
             result_dicts.append(dict(res))
-        return result_dicts            
+        return result_dicts        
+
+def load_job_from_db(id):
+    with engine.connect() as conn:
+        sql_query = 'SELECT * FROM jobs WHERE id = ' 
+        val = id
+        results = conn.execute(text(f"{sql_query}{val}"))
+        rows = results.all()
+        output = []
+        for row in rows:
+            result=row._mapping
+            output.append(dict(result))
+            if len(output) == 0:
+                return None
+            else:
+                return output[0]
+        
