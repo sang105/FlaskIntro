@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {% include "header.html" %}
+    </head>
+    <body>
+        {% include "banner.html" %}
+        {% include 'nav.html' %}
+        <div class="container">
+            <h1 class="text-center">Jovian Careers</h1>
+            <p>Your application for the position of a <b>{{ job['title'] }}</b> has been submitted.</p>
+            <h3 class="mb-4">{{ application['first_name'] }} {{ application['last_name'] }}</h3>
+            <h5 class="mb-0">Email</h5>
+            <p>{{ application['email']}}</p>
+            <h5 class="mb-0">Education</h5>
+            <p>{{ application['education']}}</p>
+            <h5 class="mb-0">Resume URL </h5>
+            <p>{{ application['resume_url']}}</p>
+            <h5 class="mb-0">LinkedIn URL</h5>
+            <p>{{ application['linkedin_url']}}</p>
+            <h5 class="mb-0">Experience</h5>
+            <p>{{ application['work_experience']}}</p>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html> 
